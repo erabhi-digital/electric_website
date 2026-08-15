@@ -1,0 +1,71 @@
+html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: Inter, "Noto Sans Devanagari", sans-serif;
+      }
+      .font-heading {
+        font-family: Poppins, "Noto Sans Devanagari", sans-serif;
+      }
+      .hero-grid {
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+        background-size: 38px 38px;
+      }
+      .diagonal {
+        clip-path: polygon(0 0, 100% 0, 82% 100%, 0 100%);
+      }
+      .float-a {
+        animation: floatA 5s ease-in-out infinite;
+      }
+      .float-b {
+        animation: floatB 6s ease-in-out infinite;
+      }
+      .float-c {
+        animation: floatC 5.5s ease-in-out infinite;
+      }
+      @keyframes floatA {
+        50% {
+          transform: translateY(-12px) rotate(4deg);
+        }
+      }
+      @keyframes floatB {
+        50% {
+          transform: translateY(10px) rotate(-5deg);
+        }
+      }
+      @keyframes floatC {
+        50% {
+          transform: translateY(-8px) rotate(5deg);
+        }
+      }
+      [x-cloak] {
+        display: none !important;
+      }
+      .fade-up {
+        animation: fadeUp 0.7s ease both;
+      }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .field {
+        width: 100%;
+        min-height: 48px;
+        border-radius: 12px;
+        border: 1px solid #e5e7eb;
+        background: #f9fafb;
+        padding: 12px 14px;
+        outline: none;
+      }
+      .field:focus {
+        border-color: #f5a623;
+        box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.15);
+      }

@@ -1,0 +1,946 @@
+<!doctype html>
+<html lang="hi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="R.K. Electric & House Wiring — सुरक्षित वायरिंग, इलेक्ट्रिकल रिपेयर और इंस्टॉलेशन सेवाएँ, लखनऊ।"
+    />
+    <title>R.K. Electric & House Wiring | Safe Wiring • Smart Living</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              navy: "#0B1E3D",
+              gold: "#F5A623",
+              red: "#B4182B",
+              ink: "#1A1A1A",
+              paper: "#F5F6F8",
+            },
+            fontFamily: {
+              sans: ["Inter", "Noto Sans Devanagari", "sans-serif"],
+              heading: ["Poppins", "Noto Sans Devanagari", "sans-serif"],
+            },
+            boxShadow: {
+              soft: "0 20px 50px rgba(11,30,61,.12)",
+            },
+          },
+        },
+      };
+    </script>
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./index.css">
+    <link rel="shortcut icon" href="./img/fevicon.png" type="image/x-icon">
+  </head>
+
+  <body class="bg-paper text-ink" x-data="bookingApp()" x-init="init()">
+    <!-- NAVBAR -->
+    <header
+      class="sticky top-0 z-50 border-b border-white/10 bg-navy/95 text-white backdrop-blur"
+    >
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+          <a href="#home" class="flex min-w-0 items-center gap-3">
+            <div
+              class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-gold text-slate-900 font-black text-xl"
+            >
+              R
+            </div>
+            <div class="min-w-0">
+              <div
+                class="font-heading text-sm sm:text-base font-extrabold leading-tight"
+              >
+                R.K. ELECTRIC
+              </div>
+              <div class="text-[10px] sm:text-xs text-white/65">
+                HOUSE WIRING
+              </div>
+            </div>
+          </a>
+
+          <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold">
+            <a class="hover:text-gold" href="#home">Home</a>
+            <a class="hover:text-gold" href="#services">Services</a>
+            <a class="hover:text-gold" href="#gallery">Gallery</a>
+            <a class="hover:text-gold" href="#about">About</a>
+            <a class="hover:text-gold" href="#booking">Booking</a>
+            <a class="hover:text-gold" href="#contact">Contact</a>
+          </nav>
+
+          <div class="hidden lg:flex items-center gap-3">
+            <a
+              href="#booking"
+              class="rounded-xl bg-gold px-4 py-2.5 font-extrabold text-navy shadow-lg shadow-gold/20 hover:-translate-y-0.5 transition"
+              >Book Now</a
+            >
+          </div>
+
+          <button
+            @click="mobileNav=!mobileNav"
+            class="lg:hidden min-h-11 min-w-11 rounded-xl border border-white/15 text-xl"
+            :aria-expanded="mobileNav"
+            aria-controls="mobile-menu"
+            aria-label="Menu"
+          >
+            ☰
+          </button>
+        </div>
+
+        <div
+          id="mobile-menu"
+          x-cloak
+          x-show="mobileNav"
+          x-transition
+          class="lg:hidden border-t border-white/10 py-3"
+        >
+          <div class="grid gap-1 pb-2">
+            <template x-for="link in navLinks" :key="link[1]">
+              <a
+                :href="link[1]"
+                @click="mobileNav=false"
+                class="rounded-lg px-3 py-3 font-semibold hover:bg-white/10"
+                x-text="link[0]"
+              ></a>
+            </template>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <a
+              href="#booking"
+              @click="mobileNav=false"
+              class="rounded-xl bg-gold px-3 py-3 text-center font-extrabold text-navy"
+              >Book Now</a
+            >
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <main id="home">
+      <section class="relative overflow-hidden bg-navy text-white">
+        <div class="absolute inset-0 hero-grid opacity-80"></div>
+        <div
+          class="absolute -right-40 top-10 h-96 w-96 rounded-full bg-red/30 blur-3xl"
+        ></div>
+        <div
+          class="absolute left-1/3 bottom-0 h-72 w-72 rounded-full bg-gold/10 blur-3xl"
+        ></div>
+
+        <div
+          class="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8 lg:py-24"
+        >
+          <div class="grid items-center gap-12 lg:grid-cols-[1.05fr_.95fr]">
+            <div class="fade-up">
+              <div
+                class="mb-5 inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/10 px-4 py-2 text-xs font-bold text-gold"
+              >
+                ⚡ सुरक्षित वायरिंग • स्मार्ट लिविंग
+              </div>
+
+              <h1
+                class="font-heading text-4xl font-extrabold leading-[1.08] sm:text-5xl lg:text-6xl"
+              >
+                R.K. ELECTRIC<br />
+                <span class="text-red">HOUSE WIRING</span>
+              </h1>
+
+              <div class="mt-5 flex flex-wrap items-center gap-3">
+                <span
+                  class="rounded-full bg-white/10 px-4 py-2 text-sm font-bold text-yellow-500"
+                  >प्रो. राजू वर्मा</span
+                >
+                <span class="text-sm font-semibold text-white/65"
+                  >Safe Wiring • Smart Living</span
+                >
+              </div>
+
+              <p
+                class="mt-6 max-w-2xl text-base leading-8 text-white/75 sm:text-lg"
+              >
+                नए मकान, बिल्डिंग, ऑफिस और होटल के लिए सुरक्षित इलेक्ट्रिकल
+                वायरिंग, रिपेयर और इंस्टॉलेशन। अनुभवी कारीगरों के साथ उचित एवं
+                सामग्री-समेत दरों पर बेहतर सेवा।
+              </p>
+
+              <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+                <a
+                  href="#booking"
+                  class="rounded-2xl bg-gold px-6 py-4 text-center font-extrabold text-navy shadow-xl shadow-gold/20 hover:-translate-y-1 transition"
+                  >अभी बुक करें →</a
+                >
+                <a
+                  href="tel:9161419628"
+                  class="rounded-2xl border border-white/20 bg-white/5 px-6 py-4 text-center font-extrabold hover:bg-white/10 transition"
+                  >📞 कॉल करें</a
+                >
+              </div>
+
+              <div class="mt-8 flex flex-wrap gap-3 text-sm text-white/70">
+                <span>📍 रॉयल सिटी, बिजनौर रोड, लखनऊ</span>
+                <span>•</span>
+                <span>1 Year Free Maintenance</span>
+              </div>
+            </div>
+
+            <div class="relative min-h-[430px] sm:min-h-[520px]">
+              <div
+                class="absolute right-0 top-4 z-20 rounded-2xl bg-gold px-5 py-4 text-center text-navy shadow-xl shadow-black/20"
+              >
+                <div class="text-xs font-bold">TRUST BADGE</div>
+                <div class="font-heading text-lg font-extrabold">
+                  1 वर्ष की नि:शुल्क<br />मेंटेनेंस सुविधा
+                </div>
+              </div>
+
+              <div
+                class="absolute inset-x-4 bottom-0 top-12 overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 shadow-2xl"
+              >
+                <img
+                  src="./img/Profile.png"
+                  alt="Electrician working on electrical panel"
+                  class="h-full w-full object-cover opacity-90"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-navy via-transparent to-transparent"
+                ></div>
+                <div
+                  class="absolute bottom-5 left-5 right-5 rounded-2xl bg-navy/80 p-4 backdrop-blur"
+                >
+                  <div class="text-sm font-bold text-gold">
+                    PROFESSIONAL ELECTRICAL SERVICE
+                  </div>
+                  <div class="mt-1 text-xs text-white/70">
+                    Wiring • Repair • Installation • Maintenance
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="float-a absolute left-0 top-32 z-30 grid h-24 w-24 rotate-6 place-items-center rounded-3xl border-4 border-white bg-gold shadow-2xl"
+              >
+                <div class="text-4xl">💡</div>
+              </div>
+              <div
+                class="float-b absolute bottom-20 right-0 z-30 grid h-24 w-24 -rotate-6 place-items-center rounded-3xl border-4 border-white bg-red shadow-2xl"
+              >
+                <div class="text-4xl">🔌</div>
+              </div>
+              <div
+                class="float-c absolute bottom-5 left-10 z-30 grid h-20 w-20 rotate-3 place-items-center rounded-3xl border-4 border-white bg-white shadow-2xl"
+              >
+                <div class="text-3xl">🧰</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TRUST STRIP -->
+      <section class="bg-white">
+        <div
+          class="mx-auto grid max-w-7xl grid-cols-2 divide-x divide-y divide-gray-100 sm:grid-cols-4 sm:divide-y-0"
+        >
+          <template x-for="item in trustItems" :key="item.en">
+            <div class="flex items-center gap-3 px-4 py-5 sm:px-6">
+              <div
+                class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-navy text-lg text-white"
+                x-text="item.icon"
+              ></div>
+              <div>
+                <div class="font-bold text-navy" x-text="item.hi"></div>
+                <div class="text-xs text-gray-500" x-text="item.en"></div>
+              </div>
+            </div>
+          </template>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section id="services" class="py-16 sm:py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="max-w-2xl">
+            <span
+              class="text-sm font-extrabold uppercase tracking-widest text-red"
+              >Our Services</span
+            >
+            <h2
+              class="mt-2 font-heading text-3xl font-extrabold text-navy sm:text-4xl"
+            >
+              इलेक्ट्रिकल सेवाएँ — एक ही जगह
+            </h2>
+            <p class="mt-4 leading-7 text-gray-600">
+              सेवा खोजें, कैटेगरी चुनें और अपनी जरूरत के अनुसार बुकिंग करें।
+            </p>
+          </div>
+
+          <div class="mt-8 rounded-2xl bg-white p-4 shadow-soft">
+            <div class="flex flex-col gap-3 lg:flex-row">
+              <div class="relative flex-1">
+                <span
+                  class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
+                  >⌕</span
+                >
+                <input
+                  x-model="search"
+                  type="search"
+                  placeholder="सेवा खोजें — जैसे wiring, fan, MCB..."
+                  class="w-full rounded-xl border border-gray-200 bg-gray-50 py-3.5 pl-11 pr-4 outline-none focus:border-gold focus:ring-2 focus:ring-gold/20"
+                />
+              </div>
+              <div class="flex gap-2 overflow-x-auto pb-1">
+                <button
+                  @click="filter='All'"
+                  :class="filter==='All' ? 'bg-navy text-white' : 'bg-gray-100 text-gray-700'"
+                  class="min-h-11 whitespace-nowrap rounded-xl px-4 font-bold transition"
+                >
+                  All
+                </button>
+                <template x-for="type in types" :key="type">
+                  <button
+                    @click="filter=type"
+                    :class="filter===type ? 'bg-navy text-white' : 'bg-gray-100 text-gray-700'"
+                    class="min-h-11 whitespace-nowrap rounded-xl px-4 font-bold transition"
+                    x-text="type"
+                  ></button>
+                </template>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+          >
+            <template x-for="service in filteredServices" :key="service.id">
+              <article
+                class="group overflow-hidden rounded-2xl bg-white shadow-soft transition hover:-translate-y-1 hover:shadow-xl"
+              >
+                <div class="relative h-44 overflow-hidden">
+                  <img
+                    :src="service.image"
+                    :alt="service.name_hi + ' - ' + service.name_en"
+                    loading="lazy"
+                    class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                  />
+                  <span
+                    class="absolute left-3 top-3 rounded-full bg-navy/90 px-3 py-1 text-xs font-bold text-white"
+                    x-text="service.type"
+                  ></span>
+                </div>
+                <div class="p-5">
+                  <h3
+                    class="font-heading text-lg font-extrabold text-navy"
+                    x-text="service.name_hi"
+                  ></h3>
+                  <p
+                    class="mt-1 text-sm font-semibold text-gray-500"
+                    x-text="service.name_en"
+                  ></p>
+                  <p
+                    class="mt-3 line-clamp-2 text-sm leading-6 text-gray-600"
+                    x-text="service.description_hi"
+                  ></p>
+                  <div
+                    class="mt-4 font-extrabold text-red text-xs"
+                    x-text="'Price on Request '"
+                  ></div>
+                  <div class="mt-4 grid grid-cols-2 gap-2">
+                    <button
+                      @click="selectedService=service; modal=true"
+                      class="min-h-11 rounded-xl border border-navy/15 px-3 text-sm font-bold text-navy hover:bg-navy hover:text-white"
+                    >
+                      Details
+                    </button>
+                    <button
+                      @click="book(service)"
+                      class="min-h-11 rounded-xl bg-gold px-3 text-sm font-extrabold text-navy hover:brightness-95"
+                    >
+                      Book This
+                    </button>
+                  </div>
+                </div>
+              </article>
+            </template>
+          </div>
+
+          <div
+            x-show="filteredServices.length===0"
+            x-cloak
+            class="mt-8 rounded-2xl bg-white p-10 text-center shadow-soft"
+          >
+            <div class="text-4xl">🔎</div>
+            <h3 class="mt-3 font-heading text-xl font-extrabold text-navy">
+              कोई सेवा नहीं मिली
+            </h3>
+            <p class="mt-2 text-gray-500">दूसरा keyword या category चुनें।</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT / WHY -->
+      <section id="about" class="bg-navy py-16 text-white sm:py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="grid gap-10 lg:grid-cols-2 lg:items-center">
+            <div>
+              <span
+                class="text-sm font-extrabold uppercase tracking-widest text-gold"
+                >Why Choose Us</span
+              >
+              <h2 class="mt-2 font-heading text-3xl font-extrabold sm:text-4xl">
+                काम ऐसा, जिस पर भरोसा किया जा सके।
+              </h2>
+              <p class="mt-5 max-w-xl leading-8 text-white/70">
+                R.K. Electric & House Wiring का फोकस सुरक्षित काम, सही सामग्री,
+                उचित दर और समय पर सेवा पर है। घरेलू से लेकर कमर्शियल इलेक्ट्रिकल
+                जरूरतों तक एक भरोसेमंद विकल्प।
+              </p>
+              <div class="mt-7 flex flex-wrap gap-3">
+                <span
+                  class="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm"
+                  >⚡ Skilled Labour</span
+                >
+                <span
+                  class="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm"
+                  >🛡️ Safe Work</span
+                >
+                <span
+                  class="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm"
+                  >₹ Fair Rates</span
+                >
+              </div>
+            </div>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <template x-for="feature in features" :key="feature.title">
+                <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+                  <div class="text-3xl" x-text="feature.icon"></div>
+                  <h3 class="mt-3 font-extrabold" x-text="feature.title"></h3>
+                  <p
+                    class="mt-2 text-sm leading-6 text-white/60"
+                    x-text="feature.text"
+                  ></p>
+                </div>
+              </template>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GALLERY -->
+      <section id="gallery" class="py-16 sm:py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div
+            class="flex flex-col justify-between gap-4 sm:flex-row sm:items-end"
+          >
+            <div>
+              <span
+                class="text-sm font-extrabold uppercase tracking-widest text-red"
+                >Work Showcase</span
+              >
+              <h2
+                class="mt-2 font-heading text-3xl font-extrabold text-navy sm:text-4xl"
+              >
+                हमारे काम की झलक
+              </h2>
+            </div>
+            <p class="max-w-md text-sm leading-6 text-gray-500">
+              पैनल, वायरिंग, स्विच इंस्टॉलेशन और इलेक्ट्रिकल कार्यों की विजुअल
+              गैलरी।
+            </p>
+          </div>
+
+          <div class="mt-8 grid grid-cols-2 gap-3 md:grid-cols-4">
+            <template x-for="(image,index) in gallery" :key="image">
+              <button
+                @click="galleryIndex=index; lightbox=true"
+                class="group relative overflow-hidden rounded-2xl bg-gray-200"
+                :class="index===0 || index===5 ? 'md:col-span-2 md:row-span-2' : 'aspect-square'"
+              >
+                <img
+                  :src="image"
+                  alt="Electrical work showcase"
+                  loading="lazy"
+                  class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                />
+                <div
+                  class="absolute inset-0 bg-navy/0 transition group-hover:bg-navy/20"
+                ></div>
+              </button>
+            </template>
+          </div>
+        </div>
+      </section>
+
+      <!-- BOOKING -->
+      <section id="booking" class="bg-gray-100 py-16 sm:py-20">
+        <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <div class="rounded-3xl bg-white p-5 shadow-soft sm:p-8 lg:p-10">
+            <div class="text-center">
+              <span
+                class="text-sm font-extrabold uppercase tracking-widest text-red"
+                >Service Booking</span
+              >
+              <h2
+                class="mt-2 font-heading text-3xl font-extrabold text-navy sm:text-4xl"
+              >
+                अपनी इलेक्ट्रिकल सर्विस बुक करें
+              </h2>
+              <p class="mt-3 text-gray-500">
+                फॉर्म भरें — यह demo static booking है, कोई backend नहीं।
+              </p>
+            </div>
+
+            <form
+              @submit.prevent="submitBooking"
+              class="mt-8 grid gap-5 md:grid-cols-2"
+            >
+              <div>
+                <label class="mb-2 block text-sm font-bold">नाम *</label>
+                <input
+                  x-model="form.name"
+                  required
+                  type="text"
+                  placeholder="आपका नाम"
+                  class="field"
+                />
+              </div>
+              <div>
+                <label class="mb-2 block text-sm font-bold">फोन *</label>
+                <input
+                  x-model="form.phone"
+                  required
+                  type="tel"
+                  pattern="[0-9]{10}"
+                  placeholder="10 digit mobile number"
+                  class="field"
+                />
+              </div>
+              <div class="md:col-span-2">
+                <label class="mb-2 block text-sm font-bold"
+                  >पता / Locality *</label
+                >
+                <input
+                  x-model="form.address"
+                  required
+                  type="text"
+                  placeholder="जैसे: बिजनौर रोड, लखनऊ"
+                  class="field"
+                />
+              </div>
+              <div>
+                <label class="mb-2 block text-sm font-bold">Service *</label>
+                <select x-model="form.service" required class="field">
+                  <option value="">सेवा चुनें</option>
+                  <template x-for="service in services" :key="service.id">
+                    <option
+                      :value="service.id"
+                      x-text="service.name_hi + ' — ' + service.name_en"
+                    ></option>
+                  </template>
+                </select>
+              </div>
+              <div>
+                <label class="mb-2 block text-sm font-bold"
+                  >Preferred Date *</label
+                >
+                <input
+                  x-model="form.date"
+                  required
+                  type="date"
+                  :min="today"
+                  class="field"
+                />
+              </div>
+              <div>
+                <label class="mb-2 block text-sm font-bold"
+                  >Preferred Time</label
+                >
+                <select x-model="form.time" class="field">
+                  <option value="">समय चुनें</option>
+                  <option>8:00 AM – 11:00 AM</option>
+                  <option>11:00 AM – 2:00 PM</option>
+                  <option>2:00 PM – 5:00 PM</option>
+                  <option>5:00 PM – 8:00 PM</option>
+                </select>
+              </div>
+              <div>
+                <label class="mb-2 block text-sm font-bold">Details</label>
+                <input
+                  x-model="form.message"
+                  type="text"
+                  placeholder="काम की अतिरिक्त जानकारी"
+                  class="field"
+                />
+              </div>
+              <div class="md:col-span-2">
+                <button
+                  class="min-h-12 w-full rounded-2xl bg-navy px-6 py-4 font-extrabold text-white shadow-lg hover:bg-navy/90"
+                >
+                  Booking Request भेजें →
+                </button>
+              </div>
+            </form>
+
+            <div
+              x-show="success"
+              x-cloak
+              x-transition
+              class="mt-5 rounded-2xl border border-green-200 bg-green-50 p-4 text-green-800"
+            >
+              <div class="font-extrabold">
+                ✓ Booking request WhatsApp के लिए तैयार है!
+              </div>
+              <div class="mt-1 text-sm">
+                WhatsApp खुलेगा और आपके form की पूरी जानकारी message में अपने-आप
+                भर जाएगी। बस Send दबाएँ।
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TESTIMONIALS -->
+      <section class="py-16 sm:py-20">
+        <div class="mx-auto max-w-4xl px-4 text-center sm:px-6">
+          <span
+            class="text-sm font-extrabold uppercase tracking-widest text-red"
+            >Customer Reviews</span
+          >
+          <h2
+            class="mt-2 font-heading text-3xl font-extrabold text-navy sm:text-4xl"
+          >
+            ग्राहकों का भरोसा
+          </h2>
+
+          <div
+            class="mt-8 overflow-hidden rounded-3xl bg-white p-7 shadow-soft sm:p-10"
+            @mouseenter="pauseSlider=true"
+            @mouseleave="pauseSlider=false"
+          >
+            <div class="text-4xl">★★★★★</div>
+            <p
+              class="mx-auto mt-5 max-w-2xl text-lg leading-8 text-gray-700"
+              x-text="testimonials[testimonialIndex].quote"
+            ></p>
+            <div
+              class="mt-6 font-extrabold text-navy"
+              x-text="testimonials[testimonialIndex].name"
+            ></div>
+            <div
+              class="text-sm text-gray-500"
+              x-text="testimonials[testimonialIndex].locality"
+            ></div>
+            <div class="mt-6 flex items-center justify-center gap-2">
+              <button
+                @click="prevTestimonial()"
+                aria-label="Previous review"
+                class="grid h-10 w-10 place-items-center rounded-full bg-gray-100"
+              >
+                ‹
+              </button>
+              <template x-for="(item,i) in testimonials" :key="i">
+                <button
+                  @click="testimonialIndex=i"
+                  class="h-2.5 w-2.5 rounded-full"
+                  :class="i===testimonialIndex ? 'bg-gold' : 'bg-gray-300'"
+                  :aria-label="'Review '+(i+1)"
+                ></button>
+              </template>
+              <button
+                @click="nextTestimonial()"
+                aria-label="Next review"
+                class="grid h-10 w-10 place-items-center rounded-full bg-gray-100"
+              >
+                ›
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="bg-white py-16 sm:py-20">
+        <div class="mx-auto max-w-3xl px-4 sm:px-6">
+          <div class="text-center">
+            <span
+              class="text-sm font-extrabold uppercase tracking-widest text-red"
+              >FAQ</span
+            >
+            <h2
+              class="mt-2 font-heading text-3xl font-extrabold text-navy sm:text-4xl"
+            >
+              अक्सर पूछे जाने वाले सवाल
+            </h2>
+          </div>
+          <div class="mt-8 space-y-3">
+            <template x-for="(item,index) in faqs" :key="index">
+              <div class="overflow-hidden rounded-2xl border border-gray-200">
+                <button
+                  @click="faqOpen = faqOpen===index ? null : index"
+                  class="flex min-h-14 w-full items-center justify-between gap-4 px-5 text-left font-bold text-navy"
+                  :aria-expanded="faqOpen===index"
+                  :aria-controls="'faq-'+index"
+                >
+                  <span x-text="item.q"></span
+                  ><span
+                    class="text-xl"
+                    x-text="faqOpen===index ? '−' : '+'"
+                  ></span>
+                </button>
+                <div
+                  :id="'faq-'+index"
+                  x-show="faqOpen===index"
+                  x-collapse
+                  class="px-5 pb-5 text-sm leading-7 text-gray-600"
+                  x-text="item.a"
+                ></div>
+              </div>
+            </template>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="bg-navy py-16 text-white sm:py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="grid gap-8 lg:grid-cols-2">
+            <div
+              class="overflow-hidden rounded-3xl bg-white/5 border border-white/10"
+            >
+              <iframe
+                title="R.K. Electric location map"
+                src="https://www.google.com/maps?q=Bijnor%20Road%20Lucknow&output=embed"
+                class="h-full w-full border-0"
+                loading="lazy"
+              ></iframe>
+            </div>
+            <div
+              class="rounded-3xl border border-white/10 bg-white/5 p-7 sm:p-9"
+            >
+              <span
+                class="text-sm font-extrabold uppercase tracking-widest text-gold"
+                >Contact Us</span
+              >
+              <h2 class="mt-2 font-heading text-3xl font-extrabold">
+                आज ही संपर्क करें
+              </h2>
+              <div class="mt-7 space-y-5">
+                <div class="flex gap-4">
+                  <span class="text-2xl">📍</span>
+                  <div>
+                    <div class="font-bold">Address</div>
+                    <div class="text-white/65">रॉयल सिटी, बिजनौर रोड, लखनऊ</div>
+                  </div>
+                </div>
+                <div class="flex gap-4">
+                  <span class="text-2xl">📞</span>
+                  <div>
+                    <div class="font-bold">Phone</div>
+                    <div class="space-x-3 text-white/65">
+                      <a class="hover:text-gold" href="tel:9161419628"
+                        >9161419628</a
+                      ><a class="hover:text-gold" href="tel:9984247651"
+                        >9984247651</a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="flex gap-4">
+                  <span class="text-2xl">🕐</span>
+                  <div>
+                    <div class="font-bold">Working Hours</div>
+                    <div class="text-white/65">
+                      सुबह 8:00 बजे – रात 8:00 बजे
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-8 grid grid-cols-2 gap-3">
+                <a
+                  href="tel:9161419628"
+                  class="rounded-xl bg-gold px-4 py-3 text-center font-extrabold text-navy"
+                  >📞 Call Now</a
+                >
+                <a
+                  :href="whatsappUrl()"
+                  target="_blank"
+                  rel="noopener"
+                  class="rounded-xl bg-green-500 px-4 py-3 text-center font-extrabold text-white"
+                  >💬 WhatsApp</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#07162D] py-10 text-white">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-8 md:grid-cols-4">
+          <div class="md:col-span-2">
+            <div class="flex items-center gap-3">
+              <div
+                class="grid h-11 w-11 place-items-center rounded-xl bg-gold text-xl text-navy"
+              >
+                ⚡
+              </div>
+              <div>
+                <div class="font-heading text-lg font-extrabold">
+                  R.K. ELECTRIC & HOUSE WIRING
+                </div>
+                <div class="text-xs text-white/50">
+                  Safe Wiring • Smart Living
+                </div>
+              </div>
+            </div>
+            <p class="mt-4 max-w-md text-sm leading-7 text-white/55">
+              सुरक्षित वायरिंग, इलेक्ट्रिकल रिपेयर और इंस्टॉलेशन सेवाएँ — लखनऊ।
+            </p>
+          </div>
+          <div>
+            <div class="font-bold">Quick Links</div>
+            <div class="mt-3 grid gap-2 text-sm text-white/55">
+              <a href="#services" class="hover:text-gold">Services</a
+              ><a href="#gallery" class="hover:text-gold">Gallery</a
+              ><a href="#booking" class="hover:text-gold">Booking</a
+              ><a href="#contact" class="hover:text-gold">Contact</a>
+            </div>
+          </div>
+          <div>
+            <div class="font-bold">Contact</div>
+            <div class="mt-3 grid gap-2 text-sm text-white/55">
+              <a href="tel:9161419628">9161419628</a
+              ><a href="tel:9984247651">9984247651</a
+              ><span>रॉयल सिटी, बिजनौर रोड, लखनऊ</span>
+            </div>
+          </div>
+        </div>
+        <div class="mt-8 border-t border-white/10 pt-6 text-xs text-white/40">
+          © 2026 R.K. Electric & House Wiring. Made with care.
+        </div>
+      </div>
+    </footer>
+
+    <!-- SERVICE MODAL -->
+    <div
+      x-cloak
+      x-show="modal"
+      x-transition.opacity
+      class="fixed inset-0 z-[60] grid place-items-center bg-navy/80 p-4 backdrop-blur-sm"
+      @keydown.escape.window="modal=false"
+    >
+      <div
+        @click.outside="modal=false"
+        x-show="modal"
+        x-transition
+        class="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-3xl bg-white shadow-2xl"
+      >
+        <template x-if="selectedService">
+          <div>
+            <div class="relative h-56 sm:h-72">
+              <img
+                :src="selectedService.image"
+                :alt="selectedService.name_hi"
+                class="h-full w-full object-cover"
+              />
+              <button
+                @click="modal=false"
+                class="absolute right-4 top-4 grid h-11 w-11 place-items-center rounded-full bg-white/90 text-xl font-bold text-navy"
+              >
+                ×
+              </button>
+            </div>
+            <div class="p-6 sm:p-8">
+              <span
+                class="rounded-full bg-gold/15 px-3 py-1 text-xs font-extrabold text-navy"
+                x-text="selectedService.type"
+              ></span>
+              <h3
+                class="mt-3 font-heading text-2xl font-extrabold text-navy"
+                x-text="selectedService.name_hi"
+              ></h3>
+              <div
+                class="mt-1 text-gray-500"
+                x-text="selectedService.name_en"
+              ></div>
+              <p
+                class="mt-5 leading-7 text-gray-600"
+                x-text="selectedService.description_hi"
+              ></p>
+              <div
+                class="mt-5 rounded-2xl bg-gray-50 p-4 font-extrabold text-red"
+              >
+                [ Price on Request ]
+              </div>
+              <button
+                @click="book(selectedService); modal=false"
+                class="mt-5 w-full rounded-2xl bg-navy px-5 py-4 font-extrabold text-white"
+              >
+                इस सेवा को बुक करें →
+              </button>
+            </div>
+          </div>
+        </template>
+      </div>
+    </div>
+
+    <!-- LIGHTBOX -->
+    <div
+      x-cloak
+      x-show="lightbox"
+      x-transition.opacity
+      class="fixed inset-0 z-[70] grid place-items-center bg-black/90 p-4"
+      @keydown.escape.window="lightbox=false"
+      @keydown.arrow-right.window="nextGallery()"
+      @keydown.arrow-left.window="prevGallery()"
+    >
+      <button
+        @click="lightbox=false"
+        class="absolute right-5 top-5 z-10 grid h-12 w-12 place-items-center rounded-full bg-white/10 text-2xl text-white"
+      >
+        ×
+      </button>
+      <button
+        @click="prevGallery()"
+        class="absolute left-3 sm:left-6 grid h-12 w-12 place-items-center rounded-full bg-white/10 text-3xl text-white"
+      >
+        ‹
+      </button>
+      <img
+        :src="gallery[galleryIndex]"
+        alt="Electrical work full view"
+        class="max-h-[86vh] max-w-[90vw] rounded-2xl object-contain"
+      />
+      <button
+        @click="nextGallery()"
+        class="absolute right-3 sm:right-6 grid h-12 w-12 place-items-center rounded-full bg-white/10 text-3xl text-white"
+      >
+        ›
+      </button>
+    </div>
+
+    <!-- TOAST -->
+    <div
+      x-cloak
+      x-show="toast"
+      x-transition
+      class="fixed right-4 top-20 z-[80] max-w-sm rounded-2xl bg-navy px-5 py-4 text-sm font-bold text-white shadow-2xl"
+    >
+      <span x-text="toastMessage"></span>
+    </div>
+    <script src="./app.js" ></script>
+  </body>
+</html>
